@@ -1,4 +1,4 @@
-# Floki
+# Floki v0.1
 
 trying something new :D
 
