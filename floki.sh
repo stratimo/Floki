@@ -172,6 +172,8 @@ case $menusel in
 		clear ;;
 	
 	"Izadji iz programa")
+		stratimo
+		sleep 2
 		clear && exit 0 ;;
 		
 	* )
