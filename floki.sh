@@ -123,6 +123,7 @@ osvezime () {
 git clone https://github.com/stratimo/Floki.git
 cp -R Floki/* `pwd`
 rm -r -f Floki
+rm -r -f .git
 }
 
 #funkcija10 mainmenu
