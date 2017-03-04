@@ -118,7 +118,14 @@ FUNC1=$(declare -f lakodoposla)
 #funkcija8 chmod
 ch="chmod +x /usr/local/sbin/floki"
 
-#funkcija9 mainmenu
+#funkcija9 osvezi me
+osvezime () {
+git clone https://github.com/stratimo/Floki.git
+cp -R Floki/* `pwd`
+rm -r -f Floki
+}
+
+#funkcija10 mainmenu
 mainmenu () {
 clear
 echo -e $cyan"
@@ -142,7 +149,7 @@ $green
         Gateway: $red$DEFAULT_ROUTE$green Interface: $red$IFACE$green My LAN Ip: $red$MYIP$green
 $cyan###############################################################################"$green
 
-select menusel in "TheFatRat" "Ddos" "Pogledaj ovo :D" "Precica(root)" "Izadji iz programa"; do
+select menusel in "TheFatRat" "Ddos" "Pogledaj ovo :D" "Precica(root)" "Osvezi me" "Izadji iz programa"; do
 case $menusel in
 	"TheFatRat")
 		TheFatRat
@@ -168,6 +175,13 @@ case $menusel in
 		echo -e "$red [ ✔ ] $green Instalacija zavrsena!$red [ ✔ ] $green"
 		echo -e "Bilo gde u terminalu da ukucas$red floki$green otvorice ti scriptu"
 		sleep 5
+		pause
+		mainmenu
+		clear ;;
+
+	"Osvezi me")
+		osvezime
+		echo "Upravo si me osvezio"
 		pause
 		mainmenu
 		clear ;;
