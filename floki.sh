@@ -106,8 +106,9 @@ pause () {
 
 #funkcija6 precica lakodoposla terminal
 lakodoposla () {
+path=`pwd`
 echo "#!/bin/bash" > /usr/local/sbin/floki
-scrp="cd ~/Desktop/Floki && bash floki.sh"
+scrp="cd $path && bash floki.sh"
 echo $scrp >> /usr/local/sbin/floki
 }
 
