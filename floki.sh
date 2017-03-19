@@ -115,8 +115,13 @@ echo $scrp >> /usr/local/sbin/floki
 #funkcija7 sudo
 FUNC1=$(declare -f lakodoposla)
 
-#funkcija8 chmod
-ch="chmod +x /usr/local/sbin/floki"
+#funkcija8 test-putanja-kopiranje
+putanja () {
+	echo Unesi putanju gde zelis da kopiras?
+	read varname
+	echo Tvoja putanja je $varname
+	sudo cp floki.sh $varname
+}
 
 #funkcija9 osvezi me
 osvezime () {
@@ -150,7 +155,7 @@ $green
         Gateway: $red$DEFAULT_ROUTE$green Interface: $red$IFACE$green My LAN Ip: $red$MYIP$green
 $cyan###############################################################################"$green
 
-select menusel in "TheFatRat" "Ddos" "Pogledaj ovo :D" "Precica(root)" "Osvezi me" "Izadji iz programa"; do
+select menusel in "TheFatRat" "Ddos" "Pogledaj ovo :D" "Precica(root)" "Osvezi me" "Putanja" "Izadji iz programa"; do
 case $menusel in
 	"TheFatRat")
 		TheFatRat
@@ -171,11 +176,12 @@ case $menusel in
 		clear ;;
 
 	"Precica(root)")
-		sudo bash -c "$FUNC1; lakodoposla; $ch"
+		sudo bash -c "$FUNC1; lakodoposla"
 		echo ""
 		echo -e "$red [ ✔ ] $green Instalacija zavrsena!$red [ ✔ ] $green"
 		echo -e "Bilo gde u terminalu da ukucas$red floki$green otvorice ti scriptu"
-		sleep 5
+		sleep 3
+		sudo chmod +x /usr/local/sbin/floki
 		pause
 		mainmenu
 		clear ;;
@@ -186,7 +192,13 @@ case $menusel in
 		pause
 		mainmenu
 		clear ;;
-	
+
+	"Putanja")
+		putanja
+		pause
+		mainmenu
+		clear;;
+
 	"Izadji iz programa")
 		stratimo
 		sleep 2
