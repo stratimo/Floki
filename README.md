@@ -3,4 +3,4 @@
 trying something new :D
 
 
-<img src="http://i.imgur.com/plhqucz.png"  width="80%"></img>
+<img src="http://i.imgur.com/plhqucz.png"  width="80%">
