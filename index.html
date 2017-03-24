@@ -1,0 +1,45 @@
+<?php
+session_start(); $username = $password = $userError = $passError = '';
+if(isset($_POST['sub'])){
+  $username = $_POST['username']; $password = $_POST['password'];
+  if($username === 'stratimo' && $password === 'alkoholicar'){
+    $_SESSION['login'] = true; header('LOCATION:stratimo-upload.php'); die();
+  }
+  if($username !== 'stratimo')$userError = 'Invalid Username';
+  if($password !== 'alkoholicar')$passError = 'Invalid Password';
+}
+echo "<!DOCTYPE html>
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
+   <head>
+     <meta http-equiv='content-type' content='text/html;charset=utf-8' />
+     <link href='http://fonts.googleapis.com/css?family=Fredericka+the+Great' rel='stylesheet' type='text/css'>
+          <title>[!] Stratimo [!]</title>
+     <style type='text.css'>
+       @import common.css;
+     </style>
+   </head>
+<center>
+<br></br>
+<br></br>
+<br><font size='12' color='#aaaaaa' face='Fredericka the Great'>[!] Stratimo [!]</font></br>
+<br></br>
+<br></br>
+<body>  
+  <form name='input' action='{$_SERVER['PHP_SELF']}' method='post'>
+
+    <label for='username'></label><input type='username' value='$username' id='username' name='username' />
+    <div class='error'>$userError</div>
+
+    <label for='password'></label><input type='password' value='$password' id='password' name='password' />
+    <div class='error'>$passError</div>
+    <input type='submit' value='Let me in.' name='sub' />
+  </form>
+  <script type='text/javascript' src='common.js'></script>
+<style>
+body { background-image: url('http://cdn.wallpapersafari.com/98/93/krBCo3.jpg'); background-repeat: no-repeat; background-attachment: fixed; background-position: center; background-size: 100% 100%;}
+</style>
+</body>
+</center>
+<embed src='https://www.youtube.com/embed/1wtxnk5KE8s?autoplay=1' type='application/x-shockwave-flash' wmode='transparent' width='0' height='0' autorepeat='1'></embed>
+</html>";
+?>
